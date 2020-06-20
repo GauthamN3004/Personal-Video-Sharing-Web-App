@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6"  id="mydiv">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for cat,msg in messages%}
+                    <div style = "padding-top: 5px;padding-bottom: 5px; border-radius: 3px;" class = {{ cat }}><center><p style="font-size: 15px;">{{ msg }}</p></center></div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <center>
+            <h1>ADD CONTENT</h1>
+            <form action={{ url_for("new_post") }} method="POST" style="text-align: left;">
+                <p>TITLE: </p>
+                <input type="text" required autocomplete="off" name = "title" style="text-align: left;"><br><br>
+                <p>CONTENT:</p>
+                <textarea name="content" width=90%></textarea><br><br>
+                <p>YOUTUBE LINK: </p>
+                <input type="text" required autocomplete="off" name = "link" style="text-align: left;"><br><br>
+                <center><button class="btn btn-default" type="submit">SUBMIT</button></center>
+            </form>
+        </center>
+    </div>
+    <div class="col-md-3">  </div>
+</div>
+
+{% endblock %}

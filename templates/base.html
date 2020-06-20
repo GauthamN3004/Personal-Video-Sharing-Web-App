@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>My Video Sharing Website</title>
+    <style>
+        textarea{
+            resize: none;
+            max-width: 90%;
+            min-width: 90%;
+            color: black;
+            font-size: 15px;
+            padding:2%;
+        }
+        .error {
+            color: rgb(151, 0, 0);
+            background-color: rgba(255, 0, 0, 0.527);
+        }
+        .success{
+            color: rgb(0, 97, 0);
+            background-color: rgba(0, 199, 0, 0.507);
+        }
+        #nav{
+            background-color: orange;
+            border-radius: 5px;
+            color: white;
+        }
+        a{color: white;}
+        .menu {
+            width: 20px;
+            height: 2px;
+            background-color: white;
+            margin: 2px 0;
+        }
+        body{
+            background-color: rgba(255, 145, 0,0.4);
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #mydiv{
+            padding:5%;
+            background-color: orange;
+            color: white;
+            border-style: solid;
+            border-radius: 10px;
+            border-width: 1%;
+            border-color: white;
+        }
+        input{
+            width: 90%;
+            height: 35px;
+            font-size: 15px;
+            padding:2%;
+            text-align: center;
+            color: black;
+        }
+        p{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body class="container-fluid">
+    <nav class="navbar">
+    <div class="container-fluid" id = "nav">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle" id= "collapse_button" data-toggle="collapse" data-target="#myNavbar">
+            <div class="menu"></div>
+            <div class="menu"></div>
+            <div class="menu"></div>                     
+        </button>
+        <li class="navbar-brand">My Video Sharing</li>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+            <li><a href= {{ url_for('home') }}>Home</a></li>
+            <li class="dropdown"></li>
+            <li><a href={{ url_for("my_posts") }}>My Posts</a></li>
+            <li><a href={{ url_for("new_post") }}>New Post</a></li>
+            <li><a href={{ url_for("search") }}>Search</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href= {{ url_for('logout') }}><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+        </div>
+    </div>  
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{%block body%}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for cat,msg in messages%}
+            <div style = "padding-top: 5px;padding-bottom: 5px; border-radius: 3px;" class = {{ cat }}><center><p style="font-size: 15px;">{{ msg }}</p></center></div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{% for post in my_pts %}
+<center>
+<div class="row container" style="background-color: rgba(255,255,255,0); padding-top: 15px;padding-bottom: 15px;border-bottom: solid 5px white;">
+    <div class="col-md-6"> 
+        <form action="#" method="POST">
+            <h3><b>{{ post.title }}</b></h3>
+            <p style="font-size: 15px;">{{ post.author.username}} {{ post.time_stamp.strftime('%B %d, %Y %H:%M') }}</p>
+            <p style="font-size: 15px;">{{ post.content }}</p>
+            <br>
+            <button type="submit" class = "btn btn-danger" name  = "delete" value ={{ post.id }}>DELETE</button>
+        </form>
+        <br>    
+    </div>
+    <div class="col-md-6">
+        <iframe width=90% height= "260"
+        src={{ post.link }}>
+        </iframe></div>
+</div></center>
+{% endfor %}
+<br><br><br>
+{% endblock %}

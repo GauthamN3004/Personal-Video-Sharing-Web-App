@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{%block body%}
+
+{% for post in my_pts %}
+<center>
+<div class="row container" style="background-color: rgba(255,255,255,0); padding-top: 15px;padding-bottom: 15px;border-bottom: solid 5px white;">
+    <div class="col-md-6"> 
+        <h3><b>{{ post.title }}</b></h3>
+        <p style="font-size: 15px;">{{ post.author.username}} {{ post.time_stamp.strftime('%B %d, %Y %H:%M') }}</p>
+        <p style="font-size: 15px;">{{ post.content }}</p>
+    </div>
+    <div class="col-md-6">
+        <iframe width=90% height= "260"
+        src={{ post.link }}>
+        </iframe></div>
+</div></center>
+{% endfor %}
+<br><br><br>
+{% endblock %}
