@@ -13,7 +13,7 @@
     <div class="col-md-6"> 
         <form action="#" method="POST">
             <h3><b>{{ post.title }}</b></h3>
-            <p style="font-size: 15px;">{{ post.author.username}} {{ post.time_stamp.strftime('%B %d, %Y %H:%M') }}</p>
+            <p style="font-size: 15px;">Posted by <b>{{ post.author.username}}</b> on <b>{{ post.time_stamp.strftime('%B %d, %Y %H:%M') }}</b></p>
             <p style="font-size: 15px;">{{ post.content }}</p>
             <br>
             <button type="submit" class = "btn btn-danger" name  = "delete" value ={{ post.id }}>DELETE</button>
@@ -21,8 +21,8 @@
         <br>    
     </div>
     <div class="col-md-6">
-        <iframe width=90% height= "260"
-        src={{ post.link }}>
+        <iframe width=99% height= "260"
+        src={{ post.link }} allowfullscreen>
         </iframe></div>
 </div></center>
 {% endfor %}
